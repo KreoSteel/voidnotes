@@ -33,9 +33,19 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+prisma/migrations
+
+pnpm-lock.yaml
+pnpm-workspace.yaml
 # vercel
 .vercel
 
 # typescript
 *.tsbuildinfo
+pnpm-lock.yaml
+package-lock.json
 next-env.d.ts
+
+DevNotes_Core_Roadmap.md
+
+/src/generated/prisma
