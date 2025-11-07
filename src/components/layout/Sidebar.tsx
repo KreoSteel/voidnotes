@@ -26,43 +26,46 @@ export function SidebarComponent() {
             <SidebarSeparator />
             <SidebarMenu className="flex flex-col gap-4">
                <SidebarMenuItem>
-                  <Link href="/">
                   <SidebarMenuButton 
+                     asChild
                      isActive={pathname === "/"}
-                     className={pathname === "/" ? "text-accent [&>h3]:text-accent [&>svg]:text-accent" : ""}
                   >
-                     <HomeIcon />
-                     <h3>Dashboard</h3>
+                     <Link href="/">
+                        <HomeIcon />
+                        <h3>Dashboard</h3>
+                     </Link>
                   </SidebarMenuButton>
-                  </Link>
                </SidebarMenuItem>
                <SidebarMenuItem>
-                  <Link href="/create-note">
                   <SidebarMenuButton 
-                     isActive={pathname === "/create-note"}
-                     className={pathname === "/create-note" ? "text-accent [&>h3]:text-accent [&>svg]:text-accent" : ""}
+                     asChild
+                     isActive={pathname.startsWith("/notes")}
                   >
-                     <PlusIcon />
-                     <h3>New Note</h3>
+                     <Link href="/notes/create-note">
+                        <PlusIcon />
+                        <h3>New Note</h3>
+                     </Link>
                   </SidebarMenuButton>
-                  </Link>
                </SidebarMenuItem>
                <SidebarMenuItem>
-                  <Link href="/settings">
                   <SidebarMenuButton 
+                     asChild
                      isActive={pathname === "/settings"}
-                     className={pathname === "/settings" ? "text-accent [&>h3]:text-accent [&>svg]:text-accent" : ""}
                   >
-                     <SettingsIcon />
-                     <h3>Settings</h3>
+                     <Link href="/settings">
+                        <SettingsIcon />
+                        <h3>Settings</h3>
+                     </Link>
                   </SidebarMenuButton>
-                  </Link>
                </SidebarMenuItem>
             </SidebarMenu>
          </SidebarContent>
          <SidebarSeparator />
          <SidebarFooter>
-            <SidebarMenuButton onClick={signOutAction} className="flex items-center gap-2">
+            <SidebarMenuButton 
+               onClick={signOutAction} 
+               className="flex items-center gap-2"
+            >
                <LogOutIcon />
                <h3>Logout</h3>
             </SidebarMenuButton>

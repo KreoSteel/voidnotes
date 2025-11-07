@@ -2,7 +2,7 @@ import { prisma } from "@/app/utils/prisma";
 import { Note } from "@/generated/prisma/client";
 
 export async function getUserNotes(userId: string) {
-   const notes = await prisma.note.findMany({
+   return await prisma.note.findMany({
       where: {
          userId: userId,
       },
@@ -10,14 +10,12 @@ export async function getUserNotes(userId: string) {
          createdAt: "desc",
       },
    });
-   return notes;
 }
 
 export async function getNoteById(userId: string, noteId: string) {
-   const note = await prisma.note.findUnique({
+   return await prisma.note.findFirst({
       where: { id: noteId, userId },
    });
-   return note;
 }
 
 export async function createNote(
@@ -25,14 +23,13 @@ export async function createNote(
    title: string,
    content?: string
 ) {
-   const notes = await prisma.note.create({
+   return await prisma.note.create({
       data: {
-         title: title,
+         title,
          content: content ?? "",
-         userId: userId,
+         userId,
       },
    });
-   return notes;
 }
 
 export async function updateNote(
@@ -40,16 +37,14 @@ export async function updateNote(
    noteId: string,
    data: Partial<Note>
 ) {
-   const notes = await prisma.note.update({
+   return await prisma.note.updateMany({
       where: { id: noteId, userId },
-      data: data,
+      data,
    });
-   return notes;
 }
 
 export async function deleteNote(userId: string, noteId: string) {
-   const notes = await prisma.note.delete({
+   return await prisma.note.deleteMany({
       where: { id: noteId, userId },
    });
-   return notes;
 }

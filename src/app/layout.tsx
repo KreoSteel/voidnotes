@@ -24,9 +24,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} antialiased`}
       >
-        <SidebarWrapper>
           {children}
-        </SidebarWrapper>
       </body>
     </html>
   );
