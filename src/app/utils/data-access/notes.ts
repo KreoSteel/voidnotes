@@ -1,10 +1,16 @@
 import { prisma } from "@/app/utils/prisma";
 import { Note } from "@/generated/prisma/client";
 
-export async function getUserNotes(userId: string) {
+export async function getUserNotes(userId: string, query?: string) {
    return await prisma.note.findMany({
       where: {
          userId: userId,
+         ...(query ? {
+            OR: [
+               { title: { contains: query, mode: "insensitive" } },
+               { content: { contains: query, mode: "insensitive" } },
+            ]
+         } : {}),
       },
       orderBy: {
          createdAt: "desc",

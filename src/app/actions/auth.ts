@@ -21,14 +21,14 @@ export async function signUpAction(
    }
 
    try {
-      const register = await auth.api.signUpEmail({
+      await auth.api.signUpEmail({
          body: {
             name: parsed.data.name,
             email: parsed.data.email,
             password: parsed.data.password,
          },
       });
-   } catch (error) {
+   } catch {
       return { error: "Failed to create account" };
    }
    redirect("/");
@@ -48,7 +48,7 @@ export async function signInAction(
    }
 
    try {
-      const login = await auth.api.signInEmail({
+      await auth.api.signInEmail({
          body: {
             email: parsed.data.email,
             password: parsed.data.password,

@@ -10,11 +10,11 @@ import { requireAuth } from "../utils/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-export async function getUserNotesAction() {
+export async function getUserNotesAction(query?: string) {
    const user = await requireAuth();
 
    try {
-      const notes = await getUserNotes(user.id);
+      const notes = await getUserNotes(user.id, query);
       return { success: true, notes };
    } catch (error) {
       console.error(error);

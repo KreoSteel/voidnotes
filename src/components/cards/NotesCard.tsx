@@ -10,8 +10,8 @@ import { getUserNotesAction } from "@/app/actions/notes";
 import { ClockIcon } from "lucide-react";
 import Link from "next/link";
 
-export default async function NotesCard() {
-   const { success, notes, error } = await getUserNotesAction();
+export default async function NotesCard({ query }: { query: string }) {
+   const { success, notes, error } = await getUserNotesAction(query);
    if (!success) {
       return <div>Error: {error}</div>;
    }

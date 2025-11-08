@@ -1,9 +1,7 @@
 import { getNoteById } from "@/app/utils/data-access/notes";
 import EditNoteForm from "@/components/notes/EditNoteForm";
-import DeleteNoteButton from "@/components/notes/DeleteNoteButton";
 import { requireAuth } from "@/app/utils/auth";
-import { ArrowLeftIcon, SaveIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 
@@ -26,14 +24,7 @@ export default async function NotePage({
                <Link href="/" className="hover:text-accent">
                   <ArrowLeftIcon />
                </Link>
-               <h3>New Note</h3>
-            </div>
-            <div className="flex items-center gap-2">
-               <DeleteNoteButton noteId={note.id} />
-               <Button type="submit" form="create-note-form" variant="default">
-                  <SaveIcon />
-                  Save Changes
-               </Button>
+               <h3>{note.title}</h3>
             </div>
          </div>
          <Separator />
