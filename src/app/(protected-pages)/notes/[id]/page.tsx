@@ -1,9 +1,9 @@
 import { getNoteById } from "@/app/utils/data-access/notes";
 import EditNoteForm from "@/components/notes/EditNoteForm";
-import { requireAuth } from "@/app/utils/auth";
 import { ArrowLeftIcon } from "lucide-react";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
+import { requireAuth } from "@/app/utils/lib/auth";
 
 export default async function NotePage({
    params,
@@ -17,6 +17,7 @@ export default async function NotePage({
    if (!note) {
       return <div>Note not found</div>;
    }
+   
    return (
       <div>
          <div className="flex items-center justify-between mb-7">

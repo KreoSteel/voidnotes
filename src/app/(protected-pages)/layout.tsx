@@ -1,4 +1,3 @@
-import { requireAuth } from "../utils/auth";
 import { SidebarWrapper } from "@/components/layout/SidebarWrapper";
 import { Toaster } from "sonner";
 
@@ -7,7 +6,6 @@ export default async function PageLayout({
 }: {
    children: React.ReactNode;
 }) {
-   await requireAuth();
 
    return (
       <SidebarWrapper>

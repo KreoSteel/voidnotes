@@ -1,6 +1,6 @@
 import ProfileInfoForm from "@/components/settings/ProfileInfoForm";
 import Preferences from "@/components/settings/Preferences";
-import { requireAuth } from "@/app/utils/auth";
+import { requireAuth } from "@/app/utils/lib/auth";
 import { getUserProfile } from "@/app/utils/data-access/profile";
 
 export default async function SettingsPage() {

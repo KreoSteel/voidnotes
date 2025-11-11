@@ -1,7 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { auth } from "../utils/auth";
+import { auth } from "../utils/lib/auth";
 import { signInSchema, signUpSchema } from "../utils/ZODschemas/auth";
 import { headers } from "next/headers";
 import { ZodError } from "zod";

@@ -4,14 +4,12 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import NotesCard from "@/components/cards/NotesCard";
 import { Suspense } from "react";
-import { requireAuth } from "@/app/utils/auth";
 
 export default async function Dashboard(props: {
    searchParams?: Promise<{ query?: string }>;
 }) {
    const searchParams = await props.searchParams;
    const query = searchParams?.query || "";
-   await requireAuth();
 
    return (
       <div>

@@ -6,7 +6,7 @@ import {
    getUserNotes,
    updateNote,
 } from "../utils/data-access/notes";
-import { requireAuth } from "../utils/auth";
+import { requireAuth } from "../utils/lib/auth";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 

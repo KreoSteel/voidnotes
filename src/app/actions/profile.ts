@@ -1,6 +1,6 @@
 "use server";
 import { updateUserProfile } from "../utils/data-access/profile";
-import { requireAuth } from "../utils/auth";
+import { requireAuth } from "../utils/lib/auth";
 
 type ProfileActionState = 
     | { error: string }
